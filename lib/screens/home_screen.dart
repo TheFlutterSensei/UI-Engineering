@@ -13,25 +13,25 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Center(
         child: Stack(
+          clipBehavior: Clip.none,
           children: [
-            Container(
-              width: 300,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.teal,
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            const Text(
-              'UI Engineering',
-              style: TextStyle(fontSize: 24, color: Colors.white),
-            ),
+            Icon(Icons.notifications, size: 48, color: Colors.teal),
             Positioned(
-              bottom: 10,
-              right: 10,
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.close, color: Colors.white),
+              top: -4,
+              right: -4,
+              child: Container(
+                width: 20,
+                height: 20,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  shape: BoxShape.circle,
+                ),
+                child: const Center(
+                  child: Text(
+                    '3',
+                    style: TextStyle(color: Colors.white, fontSize: 10),
+                  ),
+                ),
               ),
             ),
           ],
