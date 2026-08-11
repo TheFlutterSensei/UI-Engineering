@@ -12,27 +12,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Container(
-              width: 160,
-              height: 160,
-              decoration: BoxDecoration(
-                color: Colors.teal,
-                shape: BoxShape.circle,
-              ),
+        child: SizedBox(
+          width: 350,
+          child: AspectRatio(
+            aspectRatio: 3 / 2,
+            child: Image.network(
+              'https://picsum.photos/600/400',
+              fit: BoxFit.cover,
             ),
-
-            Positioned(
-              right: -4,
-              bottom: -4,
-              child: FloatingActionButton.small(
-                onPressed: () {},
-                child: const Icon(Icons.edit),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
