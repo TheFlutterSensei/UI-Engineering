@@ -10,6 +10,17 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Stack(
+        children: [
+          Container(width: 300, height: 200, color: Colors.teal),
+          const Text(
+            'UI Engineering',
+            style: TextStyle(fontSize: 16, color: Colors.white),
+          ),
+          Icon(Icons.star),
+        ],
+      ),
+    );
   }
 }
