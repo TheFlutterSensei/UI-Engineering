@@ -12,13 +12,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: SizedBox(
-          width: 350,
-          child: AspectRatio(
-            aspectRatio: 3 / 2,
-            child: Image.network(
-              'https://picsum.photos/600/400',
-              fit: BoxFit.cover,
+        child: Container(
+          width: 200,
+          height: 80,
+          color: Colors.teal,
+          child: FittedBox(
+            child: const Text(
+              'UI Engineering',
+              style: TextStyle(fontSize: 40, color: Colors.white),
             ),
           ),
         ),
