@@ -13,13 +13,36 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Center(
         child: Container(
-          width: 200,
-          height: 80,
-          color: Colors.teal,
+          width: 140,
+          // height: 100,
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.teal,
+            borderRadius: BorderRadius.circular(16),
+          ),
           child: FittedBox(
-            child: const Text(
-              'UI Engineering',
-              style: TextStyle(fontSize: 40, color: Colors.white),
+            child: Row(
+              children: [
+                const Icon(Icons.people, size: 40, color: Colors.white),
+                const SizedBox(width: 12),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Users',
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                    Text(
+                      '12,450',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
