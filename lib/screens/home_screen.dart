@@ -14,18 +14,65 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       body: Center(
-        child: SizedBox(
-          width: screenWidth * 0.8,
-          child: AspectRatio(
-            aspectRatio: 16 / 9,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.network(
-                'https://picsum.photos/800/450',
-                fit: BoxFit.cover,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 180,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.teal,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: const Column(
+                children: [
+                  Icon(Icons.people, color: Colors.white, size: 32),
+                  SizedBox(height: 8),
+                  Text(
+                    'Users',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    '12,450',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
+            const SizedBox(height: 16),
+            Container(
+              width: 180,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.teal,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: const Column(
+                children: [
+                  Icon(Icons.shopping_cart, color: Colors.white, size: 32),
+                  SizedBox(height: 8),
+                  Text(
+                    'Orders',
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    '856',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
