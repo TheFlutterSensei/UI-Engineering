@@ -11,21 +11,26 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.sizeOf(context).width;
-
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
+        child: Wrap(
+          spacing: 16,
+          runSpacing: 16,
           children: [
             StatCard(icon: Icons.people, title: 'People', value: '12,450'),
-            const SizedBox(height: 16),
+
             StatCard(icon: Icons.shopping_cart, title: 'Orders', value: '856'),
-            const SizedBox(height: 16),
+
             StatCard(
               icon: Icons.attach_money,
               title: 'Revenue',
               value: '\$24,500',
+            ),
+
+            StatCard(
+              icon: Icons.inventory_2,
+              title: 'Products',
+              value: '1,240',
             ),
           ],
         ),
