@@ -14,15 +14,55 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          textBaseline: TextBaseline.alphabetic,
-          crossAxisAlignment: CrossAxisAlignment.baseline,
           children: [
-            const Text('\$', style: TextStyle(fontSize: 20)),
-            const Text(
-              '24',
-              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 70,
+                  height: 70,
+                  decoration: BoxDecoration(
+                    color: Colors.teal,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(
+                    Icons.headphones,
+                    color: Colors.white,
+                    size: 36,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                const Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Wireless Headphones',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    Text('Premium Audio', style: TextStyle(color: Colors.grey)),
+                    SizedBox(height: 6),
+                    Text(
+                      '\$129.99',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.teal,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            const Text('.99', style: TextStyle(fontSize: 20)),
+            SizedBox(width: 16),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.arrow_forward_ios),
+            ),
           ],
         ),
       ),
