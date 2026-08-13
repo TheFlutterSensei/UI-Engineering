@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ui_engineering/widgets/stat_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,20 +12,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          decoration: BoxDecoration(
-            color: Colors.teal,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.favorite),
-              const SizedBox(width: 8),
-              const Text('Favorite'),
-            ],
-          ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          textBaseline: TextBaseline.alphabetic,
+          crossAxisAlignment: CrossAxisAlignment.baseline,
+          children: [
+            const Text('\$', style: TextStyle(fontSize: 20)),
+            const Text(
+              '24',
+              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+            ),
+            const Text('.99', style: TextStyle(fontSize: 20)),
+          ],
         ),
       ),
     );
