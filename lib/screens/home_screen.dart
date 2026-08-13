@@ -12,58 +12,37 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  width: 70,
-                  height: 70,
-                  decoration: BoxDecoration(
-                    color: Colors.teal,
-                    borderRadius: BorderRadius.circular(12),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              const Icon(Icons.arrow_back, size: 28),
+              const SizedBox(width: 16),
+              const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'Product Details',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  child: const Icon(
-                    Icons.headphones,
-                    color: Colors.white,
-                    size: 36,
+                  SizedBox(height: 4),
+                  Text(
+                    'Premium Wireless Headphones',
+                    style: TextStyle(color: Colors.grey),
                   ),
-                ),
-                const SizedBox(width: 16),
-                const Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Wireless Headphones',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 4),
-                    Text('Premium Audio', style: TextStyle(color: Colors.grey)),
-                    SizedBox(height: 6),
-                    Text(
-                      '\$129.99',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.teal,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(width: 16),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.arrow_forward_ios),
-            ),
-          ],
+                ],
+              ),
+              const Spacer(),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
+                  IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
