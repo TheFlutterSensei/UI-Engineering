@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_engineering/widgets/bento_card.dart';
+import 'package:ui_engineering/constants/spacing.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(Spacing.md),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -28,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       value: '12.4k',
                     ),
                   ),
-                  SizedBox(width: 16),
+                  SizedBox(width: Spacing.md),
                   Expanded(
                     child: BentoCard(
                       icon: Icons.shopping_cart,
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       value: '856',
                     ),
                   ),
-                  SizedBox(width: 16),
+                  SizedBox(width: Spacing.md),
                   Expanded(
                     child: BentoCard(
                       icon: Icons.inventory_2,
@@ -47,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: Spacing.md),
             Expanded(
               flex: 3,
               child: Row(
@@ -62,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: Spacing.md),
             Expanded(
               flex: 1,
               child: Row(
@@ -74,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       value: '+18.25%',
                     ),
                   ),
-                  SizedBox(width: 16),
+                  SizedBox(width: Spacing.md),
                   Expanded(
                     child: BentoCard(
                       icon: Icons.star,
