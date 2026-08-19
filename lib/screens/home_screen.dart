@@ -18,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (context, constraints) {
           final width = constraints.maxWidth;
           int columns = 2;
+
           if (width < Breakpoints.mobile) {
             columns = 2;
           } else if (width < Breakpoints.tablet) {
@@ -26,10 +27,16 @@ class _HomeScreenState extends State<HomeScreen> {
             columns = 4;
           }
 
+          final padding = width < Breakpoints.mobile
+              ? Spacing.md
+              : width < Breakpoints.tablet
+              ? Spacing.lg
+              : Spacing.xl;
+
           return GridView.count(
-            padding: EdgeInsets.all(Spacing.md),
-            mainAxisSpacing: Spacing.md,
-            crossAxisSpacing: Spacing.md,
+            padding: EdgeInsets.all(padding),
+            mainAxisSpacing: padding,
+            crossAxisSpacing: padding,
             crossAxisCount: columns,
             children: [
               BentoCard(icon: Icons.analytics, title: 'Users', value: '1,250'),
