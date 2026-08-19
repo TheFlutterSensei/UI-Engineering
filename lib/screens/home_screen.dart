@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_engineering/widgets/stat_card.dart';
+import 'package:ui_engineering/widgets/bento_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,34 +12,81 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          return GridView.extent(
-            maxCrossAxisExtent: 300,
-            childAspectRatio: 3 / 4,
-            padding: const EdgeInsets.all(16),
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 16,
-            children: [
-              StatCard(icon: Icons.people, title: 'Users', value: '12,450'),
-              StatCard(
-                icon: Icons.shopping_cart,
-                title: 'Orders',
-                value: '856',
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              flex: 1,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: BentoCard(
+                      icon: Icons.people,
+                      title: 'Users',
+                      value: '12.4k',
+                    ),
+                  ),
+                  SizedBox(width: 16),
+                  Expanded(
+                    child: BentoCard(
+                      icon: Icons.shopping_cart,
+                      title: 'Orders',
+                      value: '856',
+                    ),
+                  ),
+                  SizedBox(width: 16),
+                  Expanded(
+                    child: BentoCard(
+                      icon: Icons.inventory_2,
+                      title: 'Products',
+                      value: '1.2k',
+                    ),
+                  ),
+                ],
               ),
-              StatCard(
-                icon: Icons.attach_money,
-                title: 'Revenue',
-                value: '\$24,500',
+            ),
+            SizedBox(height: 16),
+            Expanded(
+              flex: 3,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: BentoCard(
+                      icon: Icons.analytics,
+                      title: 'revenue',
+                      value: '\$24,500',
+                    ),
+                  ),
+                ],
               ),
-              StatCard(
-                icon: Icons.inventory_2,
-                title: 'products',
-                value: '1,240',
+            ),
+            SizedBox(height: 16),
+            Expanded(
+              flex: 1,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: BentoCard(
+                      icon: Icons.trending_up,
+                      title: 'Growth',
+                      value: '+18.25%',
+                    ),
+                  ),
+                  SizedBox(width: 16),
+                  Expanded(
+                    child: BentoCard(
+                      icon: Icons.star,
+                      title: 'Rating',
+                      value: '4.9',
+                    ),
+                  ),
+                ],
               ),
-            ],
-          );
-        },
+            ),
+          ],
+        ),
       ),
     );
   }
