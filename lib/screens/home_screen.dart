@@ -14,20 +14,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
-          print(constraints.maxWidth);
-
-          int columns = 2;
-
-          if (constraints.maxWidth > 900) {
-            columns = 4;
-          } else if (constraints.maxWidth > 600) {
-            columns = 3;
-          } else {
-            columns = 2;
-          }
-
-          return GridView.count(
-            crossAxisCount: columns,
+          return GridView.extent(
+            maxCrossAxisExtent: 300,
+            childAspectRatio: 3 / 4,
             padding: const EdgeInsets.all(16),
             crossAxisSpacing: 16,
             mainAxisSpacing: 16,
