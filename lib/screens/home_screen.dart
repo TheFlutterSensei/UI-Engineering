@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ui_engineering/constants/spacing.dart';
 import 'package:ui_engineering/constants/text_styles.dart';
 import 'package:ui_engineering/widgets/bento_card.dart';
+import 'package:ui_engineering/widgets/profile_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -28,6 +29,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: Icons.analytics,
                 title: 'Users',
                 value: '1,250',
+              ),
+            ),
+            const SizedBox(height: Spacing.md),
+            const SizedBox(
+              width: 320,
+              child: ProfileCard(
+                name: 'Flutter Sensei',
+                subtitle: 'Building Beautiful Interfaces',
               ),
             ),
             const SizedBox(height: Spacing.md),

@@ -7,7 +7,7 @@ class TextStyles {
   );
 
   static const TextStyle title = TextStyle(
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: FontWeight.w600,
   );
 
