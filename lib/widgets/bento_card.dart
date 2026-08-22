@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_engineering/constants/spacing.dart';
+import 'package:ui_engineering/constants/text_styles.dart';
 
 class BentoCard extends StatelessWidget {
   final IconData icon;
@@ -26,16 +27,9 @@ class BentoCard extends StatelessWidget {
         children: [
           Icon(icon, color: Colors.white, size: 32),
           Spacer(),
-          Text(title, style: TextStyle(color: Colors.white, fontSize: 16)),
+          Text(title, style: TextStyles.body.copyWith(color: Colors.white)),
           SizedBox(height: Spacing.xs),
-          Text(
-            value,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          Text(value, style: TextStyles.heading.copyWith(color: Colors.white)),
         ],
       ),
     );
