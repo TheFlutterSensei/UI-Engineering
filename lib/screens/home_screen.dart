@@ -15,33 +15,22 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text('Dashboard', style: TextStyles.title),
-            SizedBox(height: Spacing.md),
-            SizedBox(
-              width: 200,
-              height: 200,
-              child: BentoCard(
-                icon: Icons.analytics,
-                title: 'Users',
-                value: '1,250',
+      body: Form(
+        child: Padding(
+          padding: const EdgeInsets.all(Spacing.lg),
+          child: Column(
+            children: [
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Name'),
               ),
-            ),
-            const SizedBox(height: Spacing.md),
-            const SizedBox(
-              width: 320,
-              child: ProfileCard(
-                name: 'Flutter Sensei',
-                subtitle: 'Building Beautiful Interfaces',
+              const SizedBox(height: Spacing.md),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Email'),
               ),
-            ),
-            const SizedBox(height: Spacing.md),
-            const Text('Last updated 5 minutes ago', style: TextStyles.caption),
-          ],
+              const SizedBox(height: Spacing.md),
+              ElevatedButton(onPressed: () {}, child: const Text('Submit')),
+            ],
+          ),
         ),
       ),
     );
