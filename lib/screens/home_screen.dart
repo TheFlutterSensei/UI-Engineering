@@ -34,6 +34,17 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: Spacing.md),
               TextFormField(
+                maxLength: 20,
+                decoration: const InputDecoration(labelText: 'Username'),
+              ),
+              const SizedBox(height: Spacing.md),
+              TextFormField(
+                maxLength: 100,
+                maxLines: 3,
+                decoration: const InputDecoration(labelText: 'Comment'),
+              ),
+              const SizedBox(height: Spacing.md),
+              TextFormField(
                 obscureText: true,
                 decoration: const InputDecoration(labelText: 'Password'),
                 validator: Validators.checkPassword,
