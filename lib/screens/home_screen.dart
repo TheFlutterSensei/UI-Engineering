@@ -30,9 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: Spacing.md),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Email'),
-                validator: (value) {
-                  return Validators.checkRequired(value, 'your email address');
-                },
+                validator: Validators.checkEmail,
               ),
               const SizedBox(height: Spacing.md),
               ElevatedButton(
