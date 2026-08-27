@@ -33,4 +33,16 @@ class Validators {
 
     return null;
   }
+
+  static String? checkUsername(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter a username';
+    }
+
+    if (!RegExp(r'^[a-zA-Z0-9_]{3,20}$').hasMatch(value)) {
+      return 'Username must be 3-20 characters and contain only letters, numbers, and underscores';
+    }
+
+    return null;
+  }
 }

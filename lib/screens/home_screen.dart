@@ -36,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
               TextFormField(
                 maxLength: 20,
                 decoration: const InputDecoration(labelText: 'Username'),
+                validator: Validators.checkUsername,
               ),
               const SizedBox(height: Spacing.md),
               TextFormField(
