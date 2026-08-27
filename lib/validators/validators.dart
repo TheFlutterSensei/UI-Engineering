@@ -27,7 +27,7 @@ class Validators {
       return 'Password must be at least 8 characters';
     }
 
-    if (!value.contains(RegExp(r'\d'))) {
+    if (!value.contains(RegExp(r'[0-9]'))) {
       return 'Password must contain a number';
     }
 
