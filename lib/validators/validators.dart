@@ -1,7 +1,7 @@
 class Validators {
   static String? checkRequired(String? value, String fieldName) {
     if (value == null || value.trim().isEmpty) {
-      return '$fieldName is required';
+      return 'Please enter $fieldName';
     }
     return null;
   }

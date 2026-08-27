@@ -24,20 +24,23 @@ class _HomeScreenState extends State<HomeScreen> {
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Name'),
                 validator: (value) {
-                  return Validators.checkRequired(value, 'Name');
+                  return Validators.checkRequired(value, 'your name');
                 },
               ),
               const SizedBox(height: Spacing.md),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Email'),
                 validator: (value) {
-                  return Validators.checkRequired(value, 'Email');
+                  return Validators.checkRequired(value, 'your email address');
                 },
               ),
               const SizedBox(height: Spacing.md),
               ElevatedButton(
                 onPressed: () {
-                  _formKey.currentState!.validate();
+                  final isValid = _formKey.currentState!.validate();
+                  if (isValid) {
+                    print('Form is valid');
+                  }
                 },
                 child: const Text('Submit'),
               ),
