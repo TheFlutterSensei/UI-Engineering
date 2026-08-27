@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_engineering/constants/spacing.dart';
+import 'package:ui_engineering/validators/validators.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,20 +24,14 @@ class _HomeScreenState extends State<HomeScreen> {
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Name'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
+                  return Validators.checkRequired(value, 'Name');
                 },
               ),
               const SizedBox(height: Spacing.md),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Email'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
-                  }
-                  return null;
+                  return Validators.checkRequired(value, 'Email');
                 },
               ),
               const SizedBox(height: Spacing.md),
