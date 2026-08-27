@@ -33,6 +33,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 validator: Validators.checkEmail,
               ),
               const SizedBox(height: Spacing.md),
+              TextFormField(
+                obscureText: true,
+                decoration: const InputDecoration(labelText: 'Password'),
+                validator: Validators.checkPassword,
+              ),
+              const SizedBox(height: Spacing.md),
               ElevatedButton(
                 onPressed: () {
                   final isValid = _formKey.currentState!.validate();

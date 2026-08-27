@@ -17,4 +17,20 @@ class Validators {
 
     return null;
   }
+
+  static String? checkPassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your password';
+    }
+
+    if (value.length < 8) {
+      return 'Password must be at least 8 characters';
+    }
+
+    if (!value.contains(RegExp(r'\d'))) {
+      return 'Password must contain a number';
+    }
+
+    return null;
+  }
 }
