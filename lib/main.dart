@@ -22,27 +22,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-/**
- * Prompt:
-
-Create a reusable username validator for our Flutter project.
-
-The username must:
-
-- Be between 3 and 20 characters.
-- Contain only letters, numbers, and underscores.
-- Not contain spaces or other special characters.
-
-Use RegExp and add the validator to:
-
-lib/validators/validators.dart
-
-The validator should follow the same pattern as our existing
-Validators.email and Validators.password methods.
-
-Do not add any external packages.
-
-After implementing it, explain the RegExp pattern you created,
-piece by piece, so I can understand what each part does.
-
- */

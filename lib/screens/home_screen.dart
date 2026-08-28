@@ -11,6 +11,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _formKey = GlobalKey<FormState>();
+  final _nameFocus = FocusNode();
+
+  @override
+  void dispose() {
+    _nameFocus.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,45 +27,34 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Padding(
           padding: const EdgeInsets.all(Spacing.lg),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextFormField(
+                focusNode: _nameFocus,
                 decoration: const InputDecoration(labelText: 'Name'),
                 validator: (value) {
-                  return Validators.checkRequired(value, 'your name');
+                  return Validators.checkRequired(value, 'Name');
                 },
               ),
-              const SizedBox(height: Spacing.md),
-              TextFormField(
-                decoration: const InputDecoration(labelText: 'Email'),
-                validator: Validators.checkEmail,
-              ),
-              const SizedBox(height: Spacing.md),
-              TextFormField(
-                maxLength: 20,
-                decoration: const InputDecoration(labelText: 'Username'),
-                validator: Validators.checkUsername,
-              ),
-              const SizedBox(height: Spacing.md),
-              TextFormField(
-                maxLength: 100,
-                maxLines: 3,
-                decoration: const InputDecoration(labelText: 'Comment'),
-              ),
-              const SizedBox(height: Spacing.md),
-              TextFormField(
-                obscureText: true,
-                decoration: const InputDecoration(labelText: 'Password'),
-                validator: Validators.checkPassword,
-              ),
-              const SizedBox(height: Spacing.md),
-              ElevatedButton(
-                onPressed: () {
-                  final isValid = _formKey.currentState!.validate();
-                  if (isValid) {
-                    print('Form is valid');
-                  }
-                },
-                child: const Text('Submit'),
+              SizedBox(height: Spacing.lg),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      _formKey.currentState!.validate();
+                      _nameFocus.requestFocus();
+                    },
+                    child: const Text('Focus Name'),
+                  ),
+                  SizedBox(width: Spacing.md),
+                  ElevatedButton(
+                    onPressed: () {
+                      _nameFocus.unfocus();
+                    },
+                    child: const Text('Remove Focus'),
+                  ),
+                ],
               ),
             ],
           ),
