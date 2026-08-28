@@ -11,13 +11,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _nameFocus = FocusNode();
-
-  @override
-  void dispose() {
-    _nameFocus.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,31 +23,25 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextFormField(
-                focusNode: _nameFocus,
-                decoration: const InputDecoration(labelText: 'Name'),
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(labelText: 'Email'),
+                validator: Validators.checkEmail,
+              ),
+              SizedBox(height: Spacing.md),
+              TextFormField(
+                keyboardType: TextInputType.phone,
+                decoration: const InputDecoration(labelText: 'Phone'),
                 validator: (value) {
-                  return Validators.checkRequired(value, 'Name');
+                  return Validators.checkRequired(value, 'Phone Number');
                 },
               ),
-              SizedBox(height: Spacing.lg),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      _formKey.currentState!.validate();
-                      _nameFocus.requestFocus();
-                    },
-                    child: const Text('Focus Name'),
-                  ),
-                  SizedBox(width: Spacing.md),
-                  ElevatedButton(
-                    onPressed: () {
-                      _nameFocus.unfocus();
-                    },
-                    child: const Text('Remove Focus'),
-                  ),
-                ],
+              SizedBox(height: Spacing.md),
+              TextFormField(
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(labelText: 'Age'),
+                validator: (value) {
+                  return Validators.checkRequired(value, 'Age');
+                },
               ),
             ],
           ),
