@@ -11,6 +11,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final _formKey = GlobalKey<FormState>();
+  final _nameFocus = FocusNode();
+
+  @override
+  void dispose() {
+    _nameFocus.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +30,24 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextFormField(
+                keyboardType: TextInputType.text,
+                textInputAction: TextInputAction.next,
+                decoration: const InputDecoration(labelText: 'Name'),
+                validator: (value) {
+                  return Validators.checkRequired(value, 'Name');
+                },
+              ),
+              SizedBox(height: Spacing.md),
+              TextFormField(
                 keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(labelText: 'Email'),
                 validator: Validators.checkEmail,
               ),
               SizedBox(height: Spacing.md),
               TextFormField(
                 keyboardType: TextInputType.phone,
+                textInputAction: TextInputAction.next,
                 decoration: const InputDecoration(labelText: 'Phone'),
                 validator: (value) {
                   return Validators.checkRequired(value, 'Phone Number');
@@ -38,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: Spacing.md),
               TextFormField(
                 keyboardType: TextInputType.number,
+                textInputAction: TextInputAction.done,
                 decoration: const InputDecoration(labelText: 'Age'),
                 validator: (value) {
                   return Validators.checkRequired(value, 'Age');
