@@ -10,65 +10,45 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final _formKey = GlobalKey<FormState>();
-  final _nameFocus = FocusNode();
-
-  @override
-  void dispose() {
-    _nameFocus.dispose();
-    super.dispose();
-  }
+  bool _flutterSelected = false;
+  bool _firebaseSelected = false;
+  bool _designSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: () {
-          FocusScope.of(context).unfocus();
-        },
+      body: Center(
         child: Form(
-          key: _formKey,
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextFormField(
-                  keyboardType: TextInputType.text,
-                  textInputAction: TextInputAction.next,
-                  decoration: const InputDecoration(labelText: 'Name'),
-                  validator: (value) {
-                    return Validators.checkRequired(value, 'Name');
-                  },
-                ),
-                SizedBox(height: Spacing.md),
-                TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  textInputAction: TextInputAction.next,
-                  decoration: const InputDecoration(labelText: 'Email'),
-                  validator: Validators.checkEmail,
-                ),
-                SizedBox(height: Spacing.md),
-                TextFormField(
-                  keyboardType: TextInputType.phone,
-                  textInputAction: TextInputAction.next,
-                  decoration: const InputDecoration(labelText: 'Phone'),
-                  validator: (value) {
-                    return Validators.checkRequired(value, 'Phone Number');
-                  },
-                ),
-                SizedBox(height: Spacing.md),
-                TextFormField(
-                  keyboardType: TextInputType.number,
-                  textInputAction: TextInputAction.done,
-                  decoration: const InputDecoration(labelText: 'Age'),
-                  validator: (value) {
-                    return Validators.checkRequired(value, 'Age');
-                  },
-                ),
-              ],
-            ),
+          child: Column(
+            children: [
+              CheckboxListTile(
+                title: const Text('Flutter'),
+                value: _flutterSelected,
+                onChanged: (value) {
+                  setState(() {
+                    _flutterSelected = value ?? false;
+                  });
+                },
+              ),
+              CheckboxListTile(
+                title: const Text('Firebox'),
+                value: _firebaseSelected,
+                onChanged: (value) {
+                  setState(() {
+                    _firebaseSelected = value ?? false;
+                  });
+                },
+              ),
+              CheckboxListTile(
+                title: const Text('UI Design'),
+                value: _designSelected,
+                onChanged: (value) {
+                  setState(() {
+                    _designSelected = value ?? false;
+                  });
+                },
+              ),
+            ],
           ),
         ),
       ),
