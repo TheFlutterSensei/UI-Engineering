@@ -8,7 +8,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String? _paymentMethod;
+  bool _notificationsEnabled = false;
+  bool _darkModeEnabled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -16,26 +17,23 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Form(
         child: Column(
           children: [
-            RadioGroup<String>(
-              groupValue: _paymentMethod,
+            SwitchListTile(
+              title: const Text('Notifications'),
+              value: _notificationsEnabled,
               onChanged: (value) {
                 setState(() {
-                  _paymentMethod = value;
+                  _notificationsEnabled = value;
                 });
               },
-              child: Column(
-                children: [
-                  RadioListTile<String>(
-                    title: const Text('Credit Card'),
-                    value: 'card',
-                  ),
-                  RadioListTile<String>(title: const Text('UPI'), value: 'upi'),
-                  RadioListTile<String>(
-                    title: const Text('Cash'),
-                    value: 'cash',
-                  ),
-                ],
-              ),
+            ),
+            SwitchListTile(
+              title: const Text('Dark Mode'),
+              value: _darkModeEnabled,
+              onChanged: (value) {
+                setState(() {
+                  _darkModeEnabled = value;
+                });
+              },
             ),
           ],
         ),
