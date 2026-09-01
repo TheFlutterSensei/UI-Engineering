@@ -8,46 +8,36 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool _flutterSelected = false;
-  bool _firebaseSelected = false;
-  bool _designSelected = false;
+  String? _paymentMethod;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Form(
-          child: Column(
-            children: [
-              CheckboxListTile(
-                title: const Text('Flutter'),
-                value: _flutterSelected,
-                onChanged: (value) {
-                  setState(() {
-                    _flutterSelected = value ?? false;
-                  });
-                },
+      body: Form(
+        child: Column(
+          children: [
+            RadioGroup<String>(
+              groupValue: _paymentMethod,
+              onChanged: (value) {
+                setState(() {
+                  _paymentMethod = value;
+                });
+              },
+              child: Column(
+                children: [
+                  RadioListTile<String>(
+                    title: const Text('Credit Card'),
+                    value: 'card',
+                  ),
+                  RadioListTile<String>(title: const Text('UPI'), value: 'upi'),
+                  RadioListTile<String>(
+                    title: const Text('Cash'),
+                    value: 'cash',
+                  ),
+                ],
               ),
-              CheckboxListTile(
-                title: const Text('Firebox'),
-                value: _firebaseSelected,
-                onChanged: (value) {
-                  setState(() {
-                    _firebaseSelected = value ?? false;
-                  });
-                },
-              ),
-              CheckboxListTile(
-                title: const Text('UI Design'),
-                value: _designSelected,
-                onChanged: (value) {
-                  setState(() {
-                    _designSelected = value ?? false;
-                  });
-                },
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
