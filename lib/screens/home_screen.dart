@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ui_engineering/constants/spacing.dart';
-import 'package:ui_engineering/widgets/interests_section.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,35 +9,38 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static const List<String> _interests = [
-    'Flutter',
-    'Firebase',
-    'UI Design',
-    'Dart',
-  ];
-
-  final Set<String> _selectedInterests = {};
-
-  void _toggleInterest(String interest) {
-    setState(() {
-      if (_selectedInterests.contains(interest)) {
-        _selectedInterests.remove(interest);
-      } else {
-        _selectedInterests.add(interest);
-      }
-    });
-  }
+  DateTime? _selectedDate;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('UI Engineering')),
       body: Padding(
-        padding: const EdgeInsets.all(Spacing.md),
-        child: InterestsSection(
-          interests: _interests,
-          selectedInterests: _selectedInterests,
-          onInterestChanged: _toggleInterest,
+        padding: const EdgeInsets.all(Spacing.lg),
+        child: Form(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ElevatedButton(
+                onPressed: () async {
+                  final selectedDate = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime.now(),
+                    lastDate: DateTime(2030),
+                  );
+
+                  if (selectedDate != null) {
+                    setState(() {
+                      _selectedDate = selectedDate;
+                    });
+                  }
+                },
+                child: const Text('Select Date'),
+              ),
+              SizedBox(height: Spacing.lg),
+              if (_selectedDate != null) Text(_selectedDate.toString()),
+            ],
+          ),
         ),
       ),
     );
