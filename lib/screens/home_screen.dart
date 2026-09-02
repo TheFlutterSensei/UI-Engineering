@@ -9,7 +9,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  DateTime? _selectedDate;
+  TimeOfDay? _selectedTime;
 
   @override
   Widget build(BuildContext context) {
@@ -22,23 +22,31 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               ElevatedButton(
                 onPressed: () async {
-                  final selectedDate = await showDatePicker(
+                  final selectedTime = await showTimePicker(
                     context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime.now(),
-                    lastDate: DateTime(2030),
+                    initialTime: TimeOfDay.now(),
+                    builder: (context, child) {
+                      return MediaQuery(
+                        data: MediaQuery.of(
+                          context,
+                        ).copyWith(alwaysUse24HourFormat: false),
+                        child: child!,
+                      );
+                    },
                   );
 
-                  if (selectedDate != null) {
+                  if (selectedTime != null) {
                     setState(() {
-                      _selectedDate = selectedDate;
+                      _selectedTime = selectedTime;
                     });
                   }
                 },
-                child: const Text('Select Date'),
+                child: const Text('Select Time'),
               ),
+
               SizedBox(height: Spacing.lg),
-              if (_selectedDate != null) Text(_selectedDate.toString()),
+
+              if (_selectedTime != null) Text(_selectedTime!.format(context)),
             ],
           ),
         ),
