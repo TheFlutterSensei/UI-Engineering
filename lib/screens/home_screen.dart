@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               if (_selectedDate != null && _selectedTime != null)
                 Text(
-                  'Scheduled for ${_selectedDate!.day}/${_selectedDate!.month}/${_selectedDate!.year}'
+                  'Scheduled for ${_selectedDate!.day}/${_selectedDate!.month}/${_selectedDate!.year} '
                   'at ${_selectedTime!.hourOfPeriod}:${_selectedTime!.minute} ${_selectedTime!.period == DayPeriod.am ? 'AM' : 'PM'}',
                 ),
             ],
