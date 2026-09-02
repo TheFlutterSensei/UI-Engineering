@@ -9,7 +9,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  TimeOfDay? _selectedTime;
+  String formatDate(DateTime date) {
+    return '${_selectedDate!.day}/${_selectedDate!.month}/${_selectedDate!.year}';
+  }
+
+  DateTime? _selectedDate;
 
   @override
   Widget build(BuildContext context) {
@@ -22,31 +26,25 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               ElevatedButton(
                 onPressed: () async {
-                  final selectedTime = await showTimePicker(
+                  final selectedDate = await showDatePicker(
                     context: context,
-                    initialTime: TimeOfDay.now(),
-                    builder: (context, child) {
-                      return MediaQuery(
-                        data: MediaQuery.of(
-                          context,
-                        ).copyWith(alwaysUse24HourFormat: false),
-                        child: child!,
-                      );
-                    },
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime.now(),
+                    lastDate: DateTime(2030),
                   );
 
-                  if (selectedTime != null) {
+                  if (selectedDate != null) {
                     setState(() {
-                      _selectedTime = selectedTime;
+                      _selectedDate = selectedDate;
                     });
                   }
                 },
-                child: const Text('Select Time'),
+                child: const Text('Select Date'),
               ),
 
               SizedBox(height: Spacing.lg),
 
-              if (_selectedTime != null) Text(_selectedTime!.format(context)),
+              if (_selectedDate != null) Text(formatDate(_selectedDate!)),
             ],
           ),
         ),
