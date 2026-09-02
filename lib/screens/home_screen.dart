@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_engineering/constants/spacing.dart';
+import 'package:ui_engineering/validators/validators.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,8 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  DateTime? _selectedDate;
-  TimeOfDay? _selectedTime;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -18,62 +18,28 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Padding(
         padding: const EdgeInsets.all(Spacing.lg),
         child: Form(
+          key: _formKey,
+          autovalidateMode: AutovalidateMode.onUnfocus,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Wrap(
-                children: [
-                  ElevatedButton(
-                    onPressed: () async {
-                      final selectedDate = await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime.now(),
-                        lastDate: DateTime(2030),
-                      );
-
-                      if (selectedDate != null) {
-                        setState(() {
-                          _selectedDate = selectedDate;
-                        });
-                      }
-                    },
-                    child: const Text('Select Date'),
-                  ),
-                  SizedBox(width: Spacing.md),
-                  ElevatedButton(
-                    onPressed: () async {
-                      final selectTime = await showTimePicker(
-                        context: context,
-                        initialTime: TimeOfDay.now(),
-                        builder: (context, child) {
-                          return MediaQuery(
-                            data: MediaQuery.of(
-                              context,
-                            ).copyWith(alwaysUse24HourFormat: false),
-                            child: child!,
-                          );
-                        },
-                      );
-
-                      if (selectTime != null) {
-                        setState(() {
-                          _selectedTime = selectTime;
-                        });
-                      }
-                    },
-                    child: const Text('Select Time'),
-                  ),
-                ],
+              TextFormField(
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(labelText: 'Name'),
+                validator: (value) => Validators.checkRequired(value, 'Name'),
               ),
-
-              SizedBox(height: Spacing.lg),
-
-              if (_selectedDate != null && _selectedTime != null)
-                Text(
-                  'Scheduled for ${_selectedDate!.day}/${_selectedDate!.month}/${_selectedDate!.year} '
-                  'at ${_selectedTime!.hourOfPeriod}:${_selectedTime!.minute} ${_selectedTime!.period == DayPeriod.am ? 'AM' : 'PM'}',
-                ),
+              SizedBox(height: Spacing.md),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Email'),
+                validator: (value) => Validators.checkEmail(value),
+              ),
+              SizedBox(height: Spacing.md),
+              ElevatedButton(
+                onPressed: () {
+                  _formKey.currentState!.validate();
+                },
+                child: const Text('Check Field'),
+              ),
             ],
           ),
         ),
