@@ -1,34 +1,11 @@
 import 'package:ui_engineering/models/product.dart';
 
-final products = [
-  Product(
-    name: 'Wireless Headphones',
-    description: 'Comfortable wireless headphones',
-    price: 2499.00,
-    image: 'https://picsum.photos/400/400?1',
+final products = List.generate(
+  500,
+  (index) => Product(
+    name: 'Product ${index + 1}',
+    description: 'Description for ${index + 1}',
+    price: 999 + (index * 50),
+    image: 'https://picsum.photos/400/400?${index + 1}',
   ),
-  Product(
-    name: 'Mechanical Keyboard',
-    description: 'A Compact Mechanical Keyboard',
-    price: 3499.00,
-    image: 'https://picsum.photos/400/400?2',
-  ),
-  Product(
-    name: 'Wireless Mouse',
-    description: 'A lightweight wireless mouse',
-    price: 1499.00,
-    image: 'https://picsum.photos/400/400?3',
-  ),
-  Product(
-    name: 'Smart Watch',
-    description: 'Fitness and health tracking',
-    price: 4999.00,
-    image: 'https://picsum.photos/400/400?4',
-  ),
-  Product(
-    name: 'USB-C Hub',
-    description: 'Multi-port USB-C adapter',
-    price: 1999.00,
-    image: 'https://picsum.photos/400/400?5',
-  ),
-];
+);
