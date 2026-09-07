@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ui_engineering/constants/spacing.dart';
-import 'package:ui_engineering/constants/text_styles.dart';
 import 'package:ui_engineering/data/products.dart';
 
 class HomeScreen extends StatefulWidget {
