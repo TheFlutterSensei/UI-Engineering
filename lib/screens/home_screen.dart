@@ -13,40 +13,38 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Card(
-              child: Padding(
-                padding: EdgeInsets.all(Spacing.md),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(products[0].name),
-                    Text(products[0].getSummary),
-                    Text(products[0].formattedPrice),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              child: Padding(
-                padding: EdgeInsets.all(Spacing.md),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(products[1].name),
-                    Text(products[1].getSummary),
-                    Text(products[1].formattedPrice),
-                  ],
-                ),
-              ),
-            ),
-          ],
+      body: GridView.builder(
+        padding: EdgeInsets.all(Spacing.md),
+        itemCount: products.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: Spacing.md,
+          crossAxisSpacing: Spacing.md,
         ),
+        itemBuilder: (context, index) {
+          final product = products[index];
+
+          return Card(
+            child: Padding(
+              padding: const EdgeInsets.all(Spacing.md),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    product.name,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Text(product.description),
+                  Spacer(),
+                  Text(
+                    product.formattedPrice,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

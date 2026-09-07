@@ -16,4 +16,14 @@ final products = [
     description: 'A lightweight wireless mouse',
     price: 1499.00,
   ),
+  Product(
+    name: 'Smart Watch',
+    description: 'Fitness and health tracking',
+    price: 4999.00,
+  ),
+  Product(
+    name: 'USB-C Hub',
+    description: 'Multi-port USB-C adapter',
+    price: 1999.00,
+  ),
 ];
