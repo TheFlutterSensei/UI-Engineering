@@ -22,3 +22,31 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/**
+ * Prompt:
+ *
+We are building a Flutter UI Engineering course project.
+
+Please inspect the existing project structure and improve the current
+product GridView into a more polished e-commerce product grid.
+
+Requirements:
+
+- Use the existing Product model and products data.
+- Use GridView.builder.
+- Keep the existing responsive grid sizing.
+- Display the product image at the top.
+- Display the product name.
+- Display the product description.
+- Display the formatted price.
+- Keep the existing spacing constants.
+- Create a reusable ProductCard widget if appropriate.
+- Keep the UI clean and production-style.
+- Do not add any external packages.
+- Do not change the Product model unless absolutely necessary.
+- Follow the existing project structure and coding style.
+
+Before making changes, briefly explain your approach.
+Then implement the changes.
+ */

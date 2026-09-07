@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_engineering/constants/spacing.dart';
 import 'package:ui_engineering/data/products.dart';
+import 'package:ui_engineering/widgets/product_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,48 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
         itemBuilder: (context, index) {
           final product = products[index];
 
-          return Card(
-            child: Padding(
-              padding: const EdgeInsets.all(0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadiusGeometry.directional(
-                      topStart: Radius.circular(12),
-                      topEnd: Radius.circular(12),
-                    ),
-                    child: Image.network(
-                      product.image,
-                      height: 100,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            product.name,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text(product.description),
-                          Spacer(),
-                          Text(
-                            product.formattedPrice,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
+          return ProductCard(product: product);
         },
       ),
     );
