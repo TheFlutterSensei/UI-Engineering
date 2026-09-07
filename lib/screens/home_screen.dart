@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_engineering/constants/spacing.dart';
-import 'package:ui_engineering/models/product.dart';
+import 'package:ui_engineering/data/products.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,24 +10,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final products = [
-    Product(
-      name: 'Wireless Headphones',
-      description: 'Comfortable wireless headphones',
-      price: 2499.00,
-    ),
-    Product(
-      name: 'Mechanical Keyboard',
-      description: 'A Compact Mechanical Keyboard',
-      price: 3499.00,
-    ),
-    Product(
-      name: 'Wireless Mouse',
-      description: 'A lightweight wireless mouse',
-      price: 1499.00,
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
