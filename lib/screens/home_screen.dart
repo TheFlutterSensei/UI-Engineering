@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_engineering/constants/form_field_design.dart';
 import 'package:ui_engineering/constants/spacing.dart';
+import 'package:ui_engineering/constants/text_styles.dart';
 import 'package:ui_engineering/data/products.dart';
 import 'package:ui_engineering/models/product.dart';
 import 'package:ui_engineering/widgets/product_card.dart';
@@ -46,21 +47,35 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
 
           Expanded(
-            child: GridView.builder(
-              padding: EdgeInsets.all(Spacing.md),
-              itemCount: _filteredproducts.length,
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 250,
-                childAspectRatio: 0.8,
-                mainAxisSpacing: Spacing.md,
-                crossAxisSpacing: Spacing.md,
-              ),
-              itemBuilder: (context, index) {
-                final product = _filteredproducts[index];
+            child: _filteredproducts.isEmpty
+                ? const Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('No Products Found', style: TextStyles.title),
+                        SizedBox(height: Spacing.sm),
+                        Text(
+                          'Try searching for something else.',
+                          style: TextStyles.body,
+                        ),
+                      ],
+                    ),
+                  )
+                : GridView.builder(
+                    padding: EdgeInsets.all(Spacing.md),
+                    itemCount: _filteredproducts.length,
+                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 250,
+                      childAspectRatio: 0.8,
+                      mainAxisSpacing: Spacing.md,
+                      crossAxisSpacing: Spacing.md,
+                    ),
+                    itemBuilder: (context, index) {
+                      final product = _filteredproducts[index];
 
-                return ProductCard(product: product);
-              },
-            ),
+                      return ProductCard(product: product);
+                    },
+                  ),
           ),
         ],
       ),
