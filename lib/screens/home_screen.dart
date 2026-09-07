@@ -27,19 +27,41 @@ class _HomeScreenState extends State<HomeScreen> {
 
           return Card(
             child: Padding(
-              padding: const EdgeInsets.all(Spacing.md),
+              padding: const EdgeInsets.all(0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    product.name,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ClipRRect(
+                    borderRadius: BorderRadiusGeometry.directional(
+                      topStart: Radius.circular(12),
+                      topEnd: Radius.circular(12),
+                    ),
+                    child: Image.network(
+                      product.image,
+                      height: 100,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                  Text(product.description),
-                  Spacer(),
-                  Text(
-                    product.formattedPrice,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            product.name,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(product.description),
+                          Spacer(),
+                          Text(
+                            product.formattedPrice,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
