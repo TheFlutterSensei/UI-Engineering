@@ -5,6 +5,7 @@ import 'package:ui_engineering/constants/text_styles.dart';
 import 'package:ui_engineering/data/products.dart';
 import 'package:ui_engineering/models/product.dart';
 import 'package:ui_engineering/widgets/product_card.dart';
+import 'package:ui_engineering/widgets/product_skeleton_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -85,7 +86,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     )
                   : _isLoading
-                  ? const Center(child: CircularProgressIndicator())
+                  ? GridView.builder(
+                      padding: const EdgeInsets.all(Spacing.md),
+                      itemCount: 6,
+                      gridDelegate:
+                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                            maxCrossAxisExtent: 250,
+                            childAspectRatio: 0.8,
+                            mainAxisSpacing: Spacing.md,
+                            crossAxisSpacing: Spacing.md,
+                          ),
+                      itemBuilder: (context, index) {
+                        return const ProductSkeletonCard();
+                      },
+                    )
                   : RefreshIndicator(
                       onRefresh: () async {
                         setState(() {
