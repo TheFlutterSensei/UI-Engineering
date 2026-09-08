@@ -16,18 +16,24 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String _searchQuery = '';
 
-  List<Product> get _filteredproducts {
-    if (_searchQuery.isEmpty) {
+  List<Product> get _filteredProducts {
+    final normalizedQuery = _searchQuery.trim().toLowerCase();
+
+    if (normalizedQuery.isEmpty) {
       return products;
     }
 
-    return products.where((product) {
-      return product.name.toLowerCase().contains(_searchQuery.toLowerCase());
-    }).toList();
+    return products
+        .where(
+          (product) => product.name.toLowerCase().contains(normalizedQuery),
+        )
+        .toList();
   }
 
   @override
   Widget build(BuildContext context) {
+    final filteredProducts = _filteredProducts;
+
     return Scaffold(
       body: Column(
         children: [
@@ -47,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
 
           Expanded(
-            child: _filteredproducts.isEmpty
+            child: filteredProducts.isEmpty
                 ? const Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 : GridView.builder(
                     padding: EdgeInsets.all(Spacing.md),
-                    itemCount: _filteredproducts.length,
+                    itemCount: filteredProducts.length,
                     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: 250,
                       childAspectRatio: 0.8,
@@ -71,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisSpacing: Spacing.md,
                     ),
                     itemBuilder: (context, index) {
-                      final product = _filteredproducts[index];
+                      final product = filteredProducts[index];
 
                       return ProductCard(product: product);
                     },
