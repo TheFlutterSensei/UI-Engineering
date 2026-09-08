@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool _isLoading = true;
   String _searchQuery = '';
 
   List<Product> get _filteredProducts {
@@ -28,6 +29,21 @@ class _HomeScreenState extends State<HomeScreen> {
           (product) => product.name.toLowerCase().contains(normalizedQuery),
         )
         .toList();
+  }
+
+  Future<void> _loadProducts() async {
+    await Future.delayed(const Duration(seconds: 2));
+
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    _loadProducts();
   }
 
   @override
@@ -68,11 +84,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     )
+                  : _isLoading
+                  ? const Center(child: CircularProgressIndicator())
                   : RefreshIndicator(
                       onRefresh: () async {
-                        print('Refreshing products...');
-                        await Future.delayed(const Duration(seconds: 2));
-                        print('Refresh Completed');
+                        setState(() {
+                          _isLoading = true;
+                        });
+                        await _loadProducts();
                       },
                       child: GridView.builder(
                         padding: EdgeInsets.all(Spacing.md),
