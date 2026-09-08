@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     return products.where((product) {
-      return product.name.contains(_searchQuery);
+      return product.name.toLowerCase().contains(_searchQuery.toLowerCase());
     }).toList();
   }
 
