@@ -87,6 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   : _isLoading
                   ? GridView.builder(
+                      physics: const BouncingScrollPhysics(),
                       padding: const EdgeInsets.all(Spacing.md),
                       itemCount: 6,
                       gridDelegate:
@@ -105,6 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         await _loadProducts();
                       },
                       child: GridView.builder(
+                        physics: const BouncingScrollPhysics(),
                         padding: EdgeInsets.all(Spacing.md),
                         itemCount: filteredProducts.length,
                         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
