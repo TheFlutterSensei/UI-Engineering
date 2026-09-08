@@ -102,9 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   : RefreshIndicator(
                       onRefresh: () async {
-                        setState(() {
-                          _isLoading = true;
-                        });
                         await _loadProducts();
                       },
                       child: GridView.builder(
