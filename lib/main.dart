@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_engineering/screens/home_screen.dart';
+import 'package:ui_engineering/screens/product_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,34 +20,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
       ),
       home: const HomeScreen(),
+      routes: {'/products': (context) => const ProductScreen()},
     );
   }
 }
-
-/**
- * Prompt:
- * 
-We are building a Flutter UI Engineering course project.
-
-Please inspect the current project and explain the scroll behavior
-implemented in our product grid.
-
-Focus specifically on:
-
-- The GridView.builder
-- The current ScrollPhysics configuration
-- BouncingScrollPhysics
-- NeverScrollableScrollPhysics
-
-For each one, explain what it does in the context of our
-current product grid.
-
-Also explain what would happen visually if we changed the
-current physics to ClampingScrollPhysics.
-
-Do not modify any files.
-Do not add any packages.
-Only inspect the existing code and explain what you find.
-
-Keep the explanation practical and beginner-friendly.
- */

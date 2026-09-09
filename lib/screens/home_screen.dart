@@ -70,6 +70,13 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/products');
+              },
+              child: const Text('View Products'),
+            ),
+
             Expanded(
               child: filteredProducts.isEmpty
                   ? const Center(
