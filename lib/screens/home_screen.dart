@@ -86,40 +86,51 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     )
                   : _isLoading
-                  ? GridView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      padding: const EdgeInsets.all(Spacing.md),
-                      itemCount: 6,
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 250,
-                            childAspectRatio: 0.8,
-                            mainAxisSpacing: Spacing.md,
-                            crossAxisSpacing: Spacing.md,
-                          ),
-                      itemBuilder: (context, index) {
-                        return const ProductSkeletonCard();
-                      },
+                  ? ScrollConfiguration(
+                      behavior: ScrollConfiguration.of(
+                        context,
+                      ).copyWith(overscroll: false),
+                      child: GridView.builder(
+                        physics: const ClampingScrollPhysics(),
+                        padding: const EdgeInsets.all(Spacing.md),
+                        itemCount: 6,
+                        gridDelegate:
+                            const SliverGridDelegateWithMaxCrossAxisExtent(
+                              maxCrossAxisExtent: 250,
+                              childAspectRatio: 0.8,
+                              mainAxisSpacing: Spacing.md,
+                              crossAxisSpacing: Spacing.md,
+                            ),
+                        itemBuilder: (context, index) {
+                          return const ProductSkeletonCard();
+                        },
+                      ),
                     )
                   : RefreshIndicator(
                       onRefresh: () async {
                         await _loadProducts();
                       },
-                      child: GridView.builder(
-                        physics: const BouncingScrollPhysics(),
-                        padding: EdgeInsets.all(Spacing.md),
-                        itemCount: filteredProducts.length,
-                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                          maxCrossAxisExtent: 250,
-                          childAspectRatio: 0.8,
-                          mainAxisSpacing: Spacing.md,
-                          crossAxisSpacing: Spacing.md,
-                        ),
-                        itemBuilder: (context, index) {
-                          final product = filteredProducts[index];
+                      child: ScrollConfiguration(
+                        behavior: ScrollConfiguration.of(
+                          context,
+                        ).copyWith(overscroll: false),
+                        child: GridView.builder(
+                          physics: const ClampingScrollPhysics(),
+                          padding: EdgeInsets.all(Spacing.md),
+                          itemCount: filteredProducts.length,
+                          gridDelegate:
+                              SliverGridDelegateWithMaxCrossAxisExtent(
+                                maxCrossAxisExtent: 250,
+                                childAspectRatio: 0.8,
+                                mainAxisSpacing: Spacing.md,
+                                crossAxisSpacing: Spacing.md,
+                              ),
+                          itemBuilder: (context, index) {
+                            final product = filteredProducts[index];
 
-                          return ProductCard(product: product);
-                        },
+                            return ProductCard(product: product);
+                          },
+                        ),
                       ),
                     ),
             ),
