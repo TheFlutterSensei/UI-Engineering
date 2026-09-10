@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_engineering/screens/home_screen.dart';
-import 'package:ui_engineering/screens/product_screen.dart';
+import 'package:ui_engineering/routes/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +18,7 @@ class MyApp extends StatelessWidget {
         colorSchemeSeed: Colors.blue,
         brightness: Brightness.light,
       ),
-      home: const HomeScreen(),
-      routes: {'/products': (context) => const ProductScreen()},
+      routes: AppRoutes.routes,
     );
   }
 }
