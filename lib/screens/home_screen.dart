@@ -4,7 +4,6 @@ import 'package:ui_engineering/constants/spacing.dart';
 import 'package:ui_engineering/constants/text_styles.dart';
 import 'package:ui_engineering/data/products.dart';
 import 'package:ui_engineering/models/product.dart';
-import 'package:ui_engineering/routes/app_routes.dart';
 import 'package:ui_engineering/screens/product_screen.dart';
 import 'package:ui_engineering/widgets/product_card.dart';
 import 'package:ui_engineering/widgets/product_skeleton_card.dart';
@@ -72,13 +71,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.products);
-              },
-              child: const Text('View Products'),
-            ),
-
             Expanded(
               child: filteredProducts.isEmpty
                   ? const Center(
@@ -137,7 +129,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemBuilder: (context, index) {
                             final product = filteredProducts[index];
 
-                            return GestureDetector(
+                            return ProductCard(
+                              product: product,
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -147,7 +140,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 );
                               },
-                              child: ProductCard(product: product),
                             );
                           },
                         ),
