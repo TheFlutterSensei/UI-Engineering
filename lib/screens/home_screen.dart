@@ -136,7 +136,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemBuilder: (context, index) {
                             final product = filteredProducts[index];
 
-                            return ProductCard(product: product);
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  AppRoutes.products,
+                                  arguments: product,
+                                );
+                              },
+                              child: ProductCard(product: product),
+                            );
                           },
                         ),
                       ),
