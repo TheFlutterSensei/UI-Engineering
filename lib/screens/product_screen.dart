@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_engineering/constants/spacing.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({super.key});
@@ -7,7 +8,21 @@ class ProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Products')),
-      body: const Center(child: Text('Products Screen')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Products Screen'),
+            SizedBox(height: Spacing.md),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+              child: const Text('View Profile'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
