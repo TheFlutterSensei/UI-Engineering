@@ -13,7 +13,7 @@ class ProductScreen extends StatelessWidget {
     // final product = ModalRoute.of(context)!.settings.arguments as Product;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Products')),
+      appBar: AppBar(title: Text(product.name)),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(Spacing.md),
