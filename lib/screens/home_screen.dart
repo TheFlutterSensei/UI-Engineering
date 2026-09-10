@@ -12,10 +12,26 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreen> createState() => HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeScreenState extends State<HomeScreen> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void scrollToTop() {
+    _scrollController.animateTo(
+      0,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeOut,
+    );
+  }
+
   bool _isLoading = true;
   String _searchQuery = '';
 
@@ -116,6 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           context,
                         ).copyWith(overscroll: false),
                         child: GridView.builder(
+                          controller: _scrollController,
                           physics: const ClampingScrollPhysics(),
                           padding: EdgeInsets.all(Spacing.md),
                           itemCount: filteredProducts.length,

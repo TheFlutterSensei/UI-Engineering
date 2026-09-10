@@ -12,11 +12,12 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
+  final _homeKey = GlobalKey<HomeScreenState>();
 
-  final List<Widget> _pages = const [
-    HomeScreen(),
-    ProfileScreen(),
-    SettingsScreen(),
+  List<Widget> get _pages => [
+    HomeScreen(key: _homeKey),
+    const ProfileScreen(),
+    const SettingsScreen(),
   ];
 
   @override
@@ -26,6 +27,10 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: NavigationBar(
         selectedIndex: _selectedIndex,
         onDestinationSelected: (index) {
+          if (index == _selectedIndex && index == 0) {
+            _homeKey.currentState?.scrollToTop();
+            return;
+          }
           setState(() {
             _selectedIndex = index;
           });
