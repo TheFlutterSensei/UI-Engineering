@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_engineering/constants/spacing.dart';
+import 'package:ui_engineering/routes/app_routes.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({super.key});
@@ -16,7 +17,7 @@ class ProductScreen extends StatelessWidget {
             SizedBox(height: Spacing.md),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/profile');
+                Navigator.pushNamed(context, AppRoutes.profile);
               },
               child: const Text('View Profile'),
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_engineering/routes/app_routes.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -11,7 +12,7 @@ class ProfileScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/settings');
+              Navigator.pushNamed(context, AppRoutes.settings);
             },
             icon: const Icon(Icons.settings),
           ),

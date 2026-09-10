@@ -5,10 +5,15 @@ import 'package:ui_engineering/screens/profile_screen.dart';
 import 'package:ui_engineering/screens/settings_screen.dart';
 
 class AppRoutes {
+  static const home = '/';
+  static const products = '/products';
+  static const profile = '/profile';
+  static const settings = '/settings';
+
   static Map<String, WidgetBuilder> routes = {
-    '/': (context) => const HomeScreen(),
-    '/products': (context) => const ProductScreen(),
-    '/profile': (context) => const ProfileScreen(),
-    '/settings': (context) => const SettingsScreen(),
+    home: (context) => const HomeScreen(),
+    products: (context) => const ProductScreen(),
+    profile: (context) => const ProfileScreen(),
+    settings: (context) => const SettingsScreen(),
   };
 }

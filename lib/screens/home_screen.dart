@@ -4,6 +4,7 @@ import 'package:ui_engineering/constants/spacing.dart';
 import 'package:ui_engineering/constants/text_styles.dart';
 import 'package:ui_engineering/data/products.dart';
 import 'package:ui_engineering/models/product.dart';
+import 'package:ui_engineering/routes/app_routes.dart';
 import 'package:ui_engineering/widgets/product_card.dart';
 import 'package:ui_engineering/widgets/product_skeleton_card.dart';
 
@@ -72,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/products');
+                Navigator.pushNamed(context, AppRoutes.products);
               },
               child: const Text('View Products'),
             ),
