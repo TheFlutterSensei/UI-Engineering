@@ -15,7 +15,7 @@ class _TabScreenState extends State<TabScreen>
   void initState() {
     super.initState();
 
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 6, vsync: this);
   }
 
   @override
@@ -31,10 +31,14 @@ class _TabScreenState extends State<TabScreen>
         title: const Text('Categories'),
         bottom: TabBar(
           controller: _tabController,
+          isScrollable: true,
           tabs: const [
             Tab(text: 'Popular'),
             Tab(text: 'New'),
             Tab(text: 'Sale'),
+            Tab(text: 'Electronics'),
+            Tab(text: 'Clothing'),
+            Tab(text: 'Books'),
           ],
         ),
       ),
@@ -44,6 +48,9 @@ class _TabScreenState extends State<TabScreen>
           Center(child: Text('Popular Products')),
           Center(child: Text('New Products')),
           Center(child: Text('Sale Products')),
+          Center(child: Text('Electronic Products')),
+          Center(child: Text('Clothing Products')),
+          Center(child: Text('All Kinds of Books')),
         ],
       ),
     );
