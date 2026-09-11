@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_engineering/screens/edit_profile_screen.dart';
 // import 'package:ui_engineering/screens/home_screen.dart';
 // import 'package:ui_engineering/screens/product_screen.dart';
 import 'package:ui_engineering/screens/profile_screen.dart';
@@ -12,6 +13,7 @@ class AppRoutes {
   static const profile = '/profile';
   static const settings = '/settings';
   static const tabs = '/tabs';
+  static const editProfile = '/edit-profile';
 
   static Map<String, WidgetBuilder> routes = {
     home: (context) => const MainScreen(),
@@ -19,5 +21,6 @@ class AppRoutes {
     profile: (context) => const ProfileScreen(),
     settings: (context) => const SettingsScreen(),
     tabs: (context) => const TabScreen(),
+    editProfile: (context) => const EditProfileScreen(),
   };
 }

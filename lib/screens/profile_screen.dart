@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_engineering/constants/spacing.dart';
 import 'package:ui_engineering/routes/app_routes.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -18,7 +19,19 @@ class ProfileScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const Center(child: Text('Profile Screen')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(child: Text('Profile Screen')),
+          SizedBox(height: Spacing.md),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, AppRoutes.editProfile);
+            },
+            child: const Text('Edit Profile'),
+          ),
+        ],
+      ),
     );
   }
 }
