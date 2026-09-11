@@ -33,6 +33,17 @@ class _TabScreenState extends State<TabScreen>
         bottom: TabBar(
           controller: _tabController,
           isScrollable: true,
+          tabAlignment: TabAlignment.start,
+          padding: const EdgeInsets.symmetric(horizontal: Spacing.sm),
+          labelPadding: const EdgeInsets.symmetric(horizontal: Spacing.md),
+          indicatorSize: TabBarIndicatorSize.tab,
+          indicatorPadding: const EdgeInsets.symmetric(vertical: Spacing.xs),
+          indicator: BoxDecoration(
+            color: Theme.of(context).colorScheme.primary,
+            borderRadius: BorderRadius.circular(Spacing.lg),
+          ),
+          labelColor: Theme.of(context).colorScheme.onPrimary,
+          unselectedLabelColor: Theme.of(context).colorScheme.onSurfaceVariant,
           tabs: const [
             Tab(text: 'Popular'),
             Tab(text: 'New'),
