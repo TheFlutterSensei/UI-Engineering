@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_engineering/constants/spacing.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({super.key});
@@ -15,7 +16,7 @@ class _TabScreenState extends State<TabScreen>
   void initState() {
     super.initState();
 
-    _tabController = TabController(length: 6, vsync: this);
+    _tabController = TabController(length: 7, vsync: this);
   }
 
   @override
@@ -39,20 +40,35 @@ class _TabScreenState extends State<TabScreen>
             Tab(text: 'Electronics'),
             Tab(text: 'Clothing'),
             Tab(text: 'Books'),
+            Tab(text: 'Games'),
           ],
         ),
       ),
       body: TabBarView(
         controller: _tabController,
-        children: const [
-          Center(child: Text('Popular Products')),
-          Center(child: Text('New Products')),
-          Center(child: Text('Sale Products')),
-          Center(child: Text('Electronic Products')),
-          Center(child: Text('Clothing Products')),
-          Center(child: Text('All Kinds of Books')),
+        children: [
+          _buildProductList('Popular'),
+          _buildProductList('New'),
+          _buildProductList('Sale'),
+          _buildProductList('Electronics'),
+          _buildProductList('Clothing'),
+          _buildProductList('Books'),
+          _buildProductList('Games'),
         ],
       ),
     );
   }
+}
+
+Widget _buildProductList(String category) {
+  return ListView.builder(
+    padding: const EdgeInsets.all(Spacing.md),
+    itemCount: 10,
+    itemBuilder: (context, index) {
+      return ListTile(
+        title: Text('$category Product ${index + 1}'),
+        subtitle: Text('This is a $category product.'),
+      );
+    },
+  );
 }
