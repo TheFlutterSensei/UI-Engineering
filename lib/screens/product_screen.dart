@@ -20,13 +20,28 @@ class ProductScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.network(
-                  product.image,
-                  width: double.infinity,
-                  height: 250,
-                  fit: BoxFit.cover,
+              Hero(
+                tag: product.image,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.network(
+                    product.image,
+                    width: double.infinity,
+                    height: 250,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) =>
+                        const ColoredBox(
+                          color: Color(0xFFF1F3F4),
+                          child: SizedBox(
+                            height: 250,
+                            child: Center(
+                              child: Icon(
+                                Icons.image_not_supported_outlined,
+                              ),
+                            ),
+                          ),
+                        ),
+                  ),
                 ),
               ),
               const SizedBox(height: Spacing.md),

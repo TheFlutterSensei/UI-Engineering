@@ -149,8 +149,9 @@ class HomeScreenState extends State<HomeScreen> {
                             return ProductCard(
                               product: product,
                               onTap: () {
-                                Navigator.push(
-                                  context,
+                                FocusManager.instance.primaryFocus?.unfocus();
+
+                                Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (context) =>
                                         ProductScreen(product: product),

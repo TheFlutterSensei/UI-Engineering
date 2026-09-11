@@ -19,71 +19,79 @@ class ProductCard extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
-      child: InkWell(
-        onTap: onTap,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              flex: 4,
-              child: SizedBox(
-                width: double.infinity,
-                child: Image.network(
-                  product.image,
-                  fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) =>
-                      const ColoredBox(
-                        color: Color(0xFFF1F3F4),
-                        child: Center(
-                          child: Icon(
-                            Icons.image_not_supported_outlined,
+      child: Semantics(
+        button: true,
+        label: 'View details for ${product.name}',
+        child: InkWell(
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
+          onTap: onTap,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                flex: 4,
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Hero(
+                    tag: product.image,
+                    child: Image.network(
+                      product.image,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) =>
+                          const ColoredBox(
+                            color: Color(0xFFF1F3F4),
+                            child: Center(
+                              child: Icon(
+                                Icons.image_not_supported_outlined,
+                                color: AppColors.muted,
+                              ),
+                            ),
+                          ),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 5,
+                child: Padding(
+                  padding: const EdgeInsets.all(Spacing.md),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        product.name,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyles.body.copyWith(
+                          color: AppColors.text,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: Spacing.xs),
+                      Expanded(
+                        child: Text(
+                          product.description,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyles.caption.copyWith(
                             color: AppColors.muted,
                           ),
                         ),
                       ),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 5,
-              child: Padding(
-                padding: const EdgeInsets.all(Spacing.md),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      product.name,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyles.body.copyWith(
-                        color: AppColors.text,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.xs),
-                    Expanded(
-                      child: Text(
-                        product.description,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyles.caption.copyWith(
-                          color: AppColors.muted,
+                      const SizedBox(height: Spacing.sm),
+                      Text(
+                        product.formattedPrice,
+                        style: TextStyles.body.copyWith(
+                          color: AppColors.primary,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                    Text(
-                      product.formattedPrice,
-                      style: TextStyles.body.copyWith(
-                        color: AppColors.primary,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
