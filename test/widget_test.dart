@@ -11,9 +11,9 @@ Widget _appWithRoute(Widget page) {
         body: Center(
           child: ElevatedButton(
             onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute<void>(builder: (_) => page),
-              );
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute<void>(builder: (_) => page));
             },
             child: const Text('Open'),
           ),
@@ -32,6 +32,7 @@ void main() {
       description: 'Description',
       price: 1,
       image: 'https://example.com/product.png',
+      url: 'https://example.com/product/1',
     );
 
     await tester.pumpWidget(_appWithRoute(ProductScreen(product: product)));
