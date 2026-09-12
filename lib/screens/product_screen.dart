@@ -10,54 +10,46 @@ class ProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final product = ModalRoute.of(context)!.settings.arguments as Product;
-
-    return PopScope(
-      canPop: true,
-      onPopInvokedWithResult: (didPop, result) {
-        debugPrint('Did pop: $didPop');
-      },
-      child: Scaffold(
-        appBar: AppBar(title: Text(product.name)),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.md),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Hero(
-                  tag: product.image,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image.network(
-                      product.image,
-                      width: double.infinity,
-                      height: 250,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) =>
-                          const ColoredBox(
-                            color: Color(0xFFF1F3F4),
-                            child: SizedBox(
-                              height: 250,
-                              child: Center(
-                                child: Icon(Icons.image_not_supported_outlined),
-                              ),
+    return Scaffold(
+      appBar: AppBar(title: Text(product.name)),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(Spacing.md),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Hero(
+                tag: product.image,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.network(
+                    product.image,
+                    width: double.infinity,
+                    height: 250,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) =>
+                        const ColoredBox(
+                          color: Color(0xFFF1F3F4),
+                          child: SizedBox(
+                            height: 250,
+                            child: Center(
+                              child: Icon(Icons.image_not_supported_outlined),
                             ),
                           ),
-                    ),
+                        ),
                   ),
                 ),
-                const SizedBox(height: Spacing.md),
-                Text(product.name, style: TextStyles.title),
-                const SizedBox(height: Spacing.sm),
-                Text(product.description),
-                const SizedBox(height: Spacing.md),
-                Text(
-                  product.formattedPrice,
-                  style: TextStyles.heading.copyWith(color: Colors.green),
-                ),
-              ],
-            ),
+              ),
+              const SizedBox(height: Spacing.md),
+              Text(product.name, style: TextStyles.title),
+              const SizedBox(height: Spacing.sm),
+              Text(product.description),
+              const SizedBox(height: Spacing.md),
+              Text(
+                product.formattedPrice,
+                style: TextStyles.heading.copyWith(color: Colors.green),
+              ),
+            ],
           ),
         ),
       ),

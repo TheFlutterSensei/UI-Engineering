@@ -9,7 +9,6 @@ import 'package:ui_engineering/screens/tab_screen.dart';
 
 class AppRoutes {
   static const home = '/';
-  static const products = '/products';
   static const profile = '/profile';
   static const settings = '/settings';
   static const tabs = '/tabs';
@@ -17,7 +16,6 @@ class AppRoutes {
 
   static Map<String, WidgetBuilder> routes = {
     home: (context) => const MainScreen(),
-    // products: (context) => const ProductScreen(),
     profile: (context) => const ProfileScreen(),
     settings: (context) => const SettingsScreen(),
     tabs: (context) => const TabScreen(),
