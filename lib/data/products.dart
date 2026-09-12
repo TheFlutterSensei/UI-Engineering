@@ -1,4 +1,12 @@
 import 'package:ui_engineering/models/product.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
+
+Future<void> loadProducts() async {
+  final jsonString = await rootBundle.loadString('lib/data/products.json');
+  final data = jsonDecode(jsonString);
+  print(data.length);
+}
 
 final products = List.generate(
   500,
