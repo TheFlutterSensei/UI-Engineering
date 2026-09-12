@@ -1,0 +1,122 @@
+[
+    {
+        "image": "https://picsum.photos/400/400?1",
+        "name": "EcoFlow Portable Power Station",
+        "description": "Compact 500Wh lithium battery with multiple AC/DC outlets, ideal for camping and emergencies.",
+        "price": 549,
+        "available": true,
+        "tags": [
+            "portable",
+            "green"
+        ],
+        "discount": null
+    },
+    {
+        "image": "https://picsum.photos/400/400?2",
+        "name": "Solaris Smart Thermostat",
+        "description": "Wi‑Fi enabled thermostat that learns your schedule and reduces heating costs.",
+        "price": 199,
+        "available": false,
+        "tags": [
+            "smart home",
+            "energy saving"
+        ],
+        "discount": 15
+    },
+    {
+        "image": "https://picsum.photos/400/400?3",
+        "name": "AquaPure Water Filter Pitcher",
+        "description": "7‑stage filtration system removes chlorine, lead, and bacteria for great‑tasting water.",
+        "price": 39,
+        "available": true,
+        "tags": [
+            "kitchen",
+            "health"
+        ],
+        "discount": null
+    },
+    {
+        "image": "https://picsum.photos/400/400?4",
+        "name": "Nimbus Noise‑Canceling Headphones",
+        "description": "Over‑ear headphones with active noise cancellation and 30‑hour battery life.",
+        "price": 279,
+        "available": true,
+        "tags": [
+            "audio",
+            "travel"
+        ],
+        "discount": 20
+    },
+    {
+        "image": "https://picsum.photos/400/400?5",
+        "name": "FitPulse Activity Tracker",
+        "description": "Water‑resistant wristband that monitors heart rate, sleep, and steps.",
+        "price": 69,
+        "available": false,
+        "tags": [
+            "fitness",
+            "wearable"
+        ],
+        "discount": null
+    },
+    {
+        "image": "https://picsum.photos/400/400?6",
+        "name": "Luna LED Desk Lamp",
+        "description": "Adjustable color temperature lamp with touch dimming and USB charging port.",
+        "price": 45,
+        "available": true,
+        "tags": [
+            "office",
+            "lighting"
+        ],
+        "discount": 10
+    },
+    {
+        "image": "https://picsum.photos/400/400?7",
+        "name": "GroveCraft Bamboo Cutting Board Set",
+        "description": "Three‑piece set of sustainably sourced bamboo boards, each with a unique grain pattern.",
+        "price": 58,
+        "available": true,
+        "tags": [
+            "kitchen",
+            "sustainable"
+        ],
+        "discount": null
+    },
+    {
+        "image": "https://picsum.photos/400/400?8",
+        "name": "PixelPro 27\" 4K Monitor",
+        "description": "IPS panel with HDR support, 144Hz refresh rate, and USB‑C connectivity.",
+        "price": 399,
+        "available": false,
+        "tags": [
+            "gaming",
+            "productivity"
+        ],
+        "discount": 25
+    },
+    {
+        "image": "https://picsum.photos/400/400?9",
+        "name": "ZenBrew French Press Coffee Maker",
+        "description": "Double‑wall glass design keeps coffee hot longer, includes stainless steel mesh filter.",
+        "price": 34,
+        "available": true,
+        "tags": [
+            "kitchen",
+            "coffee"
+        ],
+        "discount": null
+    },
+    {
+        "image": "https://picsum.photos/400/400?10",
+        "name": "Voyage 15‑Liter Travel Backpack",
+        "description": "Durable ripstop fabric with anti‑theft compartments and ergonomic straps.",
+        "price": 119,
+        "available": true,
+        "tags": [
+            "outdoor",
+            "travel"
+        ],
+        "discount": 5
+    }
+]
