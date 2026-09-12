@@ -7,5 +7,6 @@ final products = List.generate(
     description: 'Description for ${index + 1}',
     price: 999 + (index * 50),
     image: 'https://picsum.photos/400/400?${index + 1}',
+    url: 'https://fluttersensei.com/products/${index + 1}',
   ),
 );

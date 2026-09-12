@@ -5,7 +5,6 @@ import 'package:ui_engineering/models/product.dart';
 
 class ProductScreen extends StatelessWidget {
   final Product product;
-
   const ProductScreen({super.key, required this.product});
 
   @override
@@ -45,6 +44,12 @@ class ProductScreen extends StatelessWidget {
               const SizedBox(height: Spacing.sm),
               Text(product.description),
               const SizedBox(height: Spacing.md),
+              SelectableText(
+                product.url,
+                style: const TextStyle(color: Colors.blue),
+              ),
+              const SizedBox(height: Spacing.md),
+
               Text(
                 product.formattedPrice,
                 style: TextStyles.heading.copyWith(color: Colors.green),
