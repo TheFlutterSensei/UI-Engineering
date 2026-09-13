@@ -20,4 +20,14 @@ class Product {
   String get formattedPrice {
     return '\$${price.toStringAsFixed(2)}';
   }
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      name: json['name'],
+      description: json['description'],
+      price: (json['price'] as num).toDouble(),
+      image: json['image'],
+      url: json['url'],
+    );
+  }
 }

@@ -5,7 +5,9 @@ import 'dart:convert';
 Future<void> loadProducts() async {
   final jsonString = await rootBundle.loadString('lib/data/products.json');
   final data = jsonDecode(jsonString);
-  print(data.length);
+
+  final products = data.map((json) => Product.fromJson(json)).toList();
+  print(products.length);
 }
 
 final products = List.generate(
