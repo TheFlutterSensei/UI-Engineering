@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ui_engineering/constants/spacing.dart';
 import 'package:ui_engineering/constants/text_styles.dart';
 import 'package:ui_engineering/models/product.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProductScreen extends StatelessWidget {
   final Product product;
@@ -47,6 +48,14 @@ class ProductScreen extends StatelessWidget {
               SelectableText(
                 product.url,
                 style: const TextStyle(color: Colors.blue),
+              ),
+              const SizedBox(height: Spacing.md),
+              FilledButton(
+                onPressed: () async {
+                  final uri = Uri.parse(product.url);
+                  await launchUrl(uri);
+                },
+                child: const Text('Open Product'),
               ),
               const SizedBox(height: Spacing.md),
 
