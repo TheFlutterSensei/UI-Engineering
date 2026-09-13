@@ -6,23 +6,20 @@ Future<void> loadProducts() async {
   final jsonString = await rootBundle.loadString('lib/data/products.json');
   final data = jsonDecode(jsonString);
 
-  final products = data.map((json) => Product.fromJson(json)).toList();
-  print(products[0].tags);
-  print(products[0].tags[0]);
-
-  print(products[0].discount);
-  print(products.length);
+  products = data.map<Product>((json) => Product.fromJson(json)).toList();
 }
 
-final products = List.generate(
-  500,
-  (index) => Product(
-    name: 'Product ${index + 1}',
-    description: 'Description for ${index + 1}',
-    price: 999 + (index * 50),
-    image: 'https://picsum.photos/400/400?${index + 1}',
-    url: 'https://fluttersensei.com/products/${index + 1}',
-    tags: [],
-    discount: 0.00,
-  ),
-);
+List<Product> products = [];
+
+// final products = List.generate(
+//   500,
+//   (index) => Product(
+//     name: 'Product ${index + 1}',
+//     description: 'Description for ${index + 1}',
+//     price: 999 + (index * 50),
+//     image: 'https://picsum.photos/400/400?${index + 1}',
+//     url: 'https://fluttersensei.com/products/${index + 1}',
+//     tags: [],
+//     discount: 0.00,
+//   ),
+// );
