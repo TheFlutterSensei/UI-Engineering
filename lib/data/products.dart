@@ -9,6 +9,8 @@ Future<void> loadProducts() async {
   final products = data.map((json) => Product.fromJson(json)).toList();
   print(products[0].tags);
   print(products[0].tags[0]);
+
+  print(products[0].discount);
   print(products.length);
 }
 
@@ -21,5 +23,6 @@ final products = List.generate(
     image: 'https://picsum.photos/400/400?${index + 1}',
     url: 'https://fluttersensei.com/products/${index + 1}',
     tags: [],
+    discount: 0.00,
   ),
 );

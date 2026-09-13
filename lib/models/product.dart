@@ -5,6 +5,7 @@ class Product {
   final String image;
   final String url;
   final List<String> tags;
+  final double? discount;
 
   Product({
     required this.name,
@@ -13,6 +14,7 @@ class Product {
     required this.image,
     required this.url,
     required this.tags,
+    required this.discount,
   });
 
   String get getSummary {
@@ -31,6 +33,7 @@ class Product {
       image: json['image'],
       url: json['url'],
       tags: List<String>.from(json['tags']),
+      discount: (json['discount'] as num?)?.toDouble(),
     );
   }
 }

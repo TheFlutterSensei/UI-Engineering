@@ -34,6 +34,7 @@ void main() {
       image: 'https://example.com/product.png',
       url: 'https://example.com/product/1',
       tags: [],
+      discount: null,
     );
 
     await tester.pumpWidget(_appWithRoute(ProductScreen(product: product)));
