@@ -1,122 +1,133 @@
 [
     {
         "image": "https://picsum.photos/400/400?1",
-        "name": "EcoFlow Portable Power Station",
-        "description": "Compact 500Wh lithium battery with multiple AC/DC outlets, ideal for camping and emergencies.",
-        "price": 549,
+        "name": "EcoLite Bamboo Travel Mug",
+        "description": "Insulated bamboo travel mug with 350ml capacity, leak‑proof lid, and sustainable design.",
+        "price": 24,
         "available": true,
         "tags": [
-            "portable",
-            "green"
+            "eco-friendly",
+            "travel"
         ],
-        "discount": null
+        "discount": null,
+        "url": "https://fluttersensei.com/product/1"
     },
     {
         "image": "https://picsum.photos/400/400?2",
-        "name": "Solaris Smart Thermostat",
-        "description": "Wi‑Fi enabled thermostat that learns your schedule and reduces heating costs.",
-        "price": 199,
+        "name": "SolarWave Bluetooth Headphones",
+        "description": "Over‑ear headphones with solar charging panel, active noise cancellation, and 30‑hour battery life.",
+        "price": 149,
         "available": false,
         "tags": [
-            "smart home",
-            "energy saving"
+            "audio",
+            "wireless",
+            "solar"
         ],
-        "discount": 15
+        "discount": 15,
+        "url": "https://fluttersensei.com/product/2"
     },
     {
         "image": "https://picsum.photos/400/400?3",
-        "name": "AquaPure Water Filter Pitcher",
-        "description": "7‑stage filtration system removes chlorine, lead, and bacteria for great‑tasting water.",
-        "price": 39,
+        "name": "PixelPro 27\" 4K Monitor",
+        "description": "27‑inch 4K IPS monitor with 144 Hz refresh rate, HDR support, and USB‑C connectivity.",
+        "price": 399,
         "available": true,
         "tags": [
-            "kitchen",
-            "health"
+            "display",
+            "gaming"
         ],
-        "discount": null
+        "discount": null,
+        "url": "https://fluttersensei.com/product/3"
     },
     {
         "image": "https://picsum.photos/400/400?4",
-        "name": "Nimbus Noise‑Canceling Headphones",
-        "description": "Over‑ear headphones with active noise cancellation and 30‑hour battery life.",
-        "price": 279,
+        "name": "FitFlex Smart Resistance Bands",
+        "description": "Set of five smart resistance bands that track reps, tension, and calories via companion app.",
+        "price": 59,
         "available": true,
         "tags": [
-            "audio",
-            "travel"
+            "fitness",
+            "smart"
         ],
-        "discount": 20
+        "discount": 10,
+        "url": "https://fluttersensei.com/product/4"
     },
     {
         "image": "https://picsum.photos/400/400?5",
-        "name": "FitPulse Activity Tracker",
-        "description": "Water‑resistant wristband that monitors heart rate, sleep, and steps.",
-        "price": 69,
+        "name": "AromaMist Ultrasonic Diffuser",
+        "description": "Compact ultrasonic essential‑oil diffuser with LED mood lighting and 8‑hour timer.",
+        "price": 34,
         "available": false,
         "tags": [
-            "fitness",
-            "wearable"
+            "home",
+            "wellness"
         ],
-        "discount": null
+        "discount": null,
+        "url": "https://fluttersensei.com/product/5"
     },
     {
         "image": "https://picsum.photos/400/400?6",
-        "name": "Luna LED Desk Lamp",
-        "description": "Adjustable color temperature lamp with touch dimming and USB charging port.",
-        "price": 45,
+        "name": "QuantumX Portable SSD 2TB",
+        "description": "Rugged 2 TB portable SSD with USB‑3.2 Gen‑2x2, shock resistance, and hardware encryption.",
+        "price": 229,
         "available": true,
         "tags": [
-            "office",
-            "lighting"
+            "storage",
+            "tech"
         ],
-        "discount": 10
+        "discount": 20,
+        "url": "https://fluttersensei.com/product/6"
     },
     {
         "image": "https://picsum.photos/400/400?7",
-        "name": "GroveCraft Bamboo Cutting Board Set",
-        "description": "Three‑piece set of sustainably sourced bamboo boards, each with a unique grain pattern.",
-        "price": 58,
+        "name": "LunaGlow Night Light",
+        "description": "Touch‑controlled LED night light with customizable colors and built‑in sound machine.",
+        "price": 22,
         "available": true,
         "tags": [
-            "kitchen",
-            "sustainable"
+            "kids",
+            "decor"
         ],
-        "discount": null
+        "discount": null,
+        "url": "https://fluttersensei.com/product/7"
     },
     {
         "image": "https://picsum.photos/400/400?8",
-        "name": "PixelPro 27\" 4K Monitor",
-        "description": "IPS panel with HDR support, 144Hz refresh rate, and USB‑C connectivity.",
-        "price": 399,
+        "name": "ChefMate Precision Sous‑Vide",
+        "description": "Stainless‑steel sous‑vide cooker with Wi‑Fi control, 10‑hour timer, and vacuum seal bags.",
+        "price": 189,
         "available": false,
         "tags": [
-            "gaming",
-            "productivity"
+            "kitchen",
+            "gadget"
         ],
-        "discount": 25
+        "discount": 25,
+        "url": "https://fluttersensei.com/product/8"
     },
     {
         "image": "https://picsum.photos/400/400?9",
-        "name": "ZenBrew French Press Coffee Maker",
-        "description": "Double‑wall glass design keeps coffee hot longer, includes stainless steel mesh filter.",
-        "price": 34,
-        "available": true,
-        "tags": [
-            "kitchen",
-            "coffee"
-        ],
-        "discount": null
-    },
-    {
-        "image": "https://picsum.photos/400/400?10",
-        "name": "Voyage 15‑Liter Travel Backpack",
-        "description": "Durable ripstop fabric with anti‑theft compartments and ergonomic straps.",
-        "price": 119,
+        "name": "GlowRun Reflective Running Vest",
+        "description": "Lightweight reflective vest with zippered pockets and built‑in LED strips for night safety.",
+        "price": 48,
         "available": true,
         "tags": [
             "outdoor",
-            "travel"
+            "sports"
         ],
-        "discount": 5
+        "discount": null,
+        "url": "https://fluttersensei.com/product/9"
+    },
+    {
+        "image": "https://picsum.photos/400/400?10",
+        "name": "StreamPro 4K Action Camera",
+        "description": "Waterproof 4K action camera with 170° lens, image stabilization, and live streaming capability.",
+        "price": 279,
+        "available": true,
+        "tags": [
+            "camera",
+            "adventure"
+        ],
+        "discount": 30,
+        "url": "https://fluttersensei.com/product/10"
     }
 ]
