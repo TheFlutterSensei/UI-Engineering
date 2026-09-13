@@ -25,3 +25,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/**
+ * Prompt
+ * 
+Prettify this JSON and return only the formatted JSON.
+{"name":"EcoLite Bamboo Travel Mug","price":24,"available":true,"tags":["eco-friendly","travel"],"discount":null,"url":"https://fluttersensei.com/product/1"}
+ */
