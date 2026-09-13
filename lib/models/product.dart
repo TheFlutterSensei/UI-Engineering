@@ -4,6 +4,7 @@ class Product {
   final double price;
   final String image;
   final String url;
+  final List<String> tags;
 
   Product({
     required this.name,
@@ -11,6 +12,7 @@ class Product {
     required this.price,
     required this.image,
     required this.url,
+    required this.tags,
   });
 
   String get getSummary {
@@ -28,6 +30,7 @@ class Product {
       price: (json['price'] as num).toDouble(),
       image: json['image'],
       url: json['url'],
+      tags: List<String>.from(json['tags']),
     );
   }
 }
