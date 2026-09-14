@@ -16,10 +16,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
   final TextEditingController userNameController = TextEditingController();
   String username = '';
 
+  final TextEditingController phoneController = TextEditingController();
+  int? phoneNumber;
+
   Future<void> _loadSettings() async {
     final prefs = await SharedPreferences.getInstance();
     final savedValue = prefs.getBool('notifications_enabled');
     final savedUsername = prefs.getString('username');
+    final savedPhone = prefs.getInt('phone');
 
     if (savedValue != null && mounted) {
       setState(() {
@@ -33,6 +37,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
         userNameController.text = savedUsername;
       });
     }
+
+    if (savedPhone != null && mounted) {
+      setState(() {
+        phoneNumber = savedPhone;
+        phoneController.text = savedPhone.toString();
+      });
+    }
   }
 
   @override
@@ -44,6 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   void dispose() {
     userNameController.dispose();
+    phoneController.dispose();
     super.dispose();
   }
 
@@ -55,17 +67,47 @@ class _SettingsScreenState extends State<SettingsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.all(Spacing.md),
+            padding: const EdgeInsets.symmetric(
+              horizontal: Spacing.md,
+              vertical: Spacing.sm,
+            ),
             child: TextField(
               controller: userNameController,
+              keyboardType: TextInputType.name,
               decoration: FormFieldDesign.textFieldDesign.copyWith(
                 labelText: 'Profile Name',
+                prefixIcon: const Icon(Icons.person),
               ),
               onChanged: (value) async {
                 username = value;
 
                 final prefs = await SharedPreferences.getInstance();
                 await prefs.setString('username', value);
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: Spacing.md,
+              vertical: Spacing.sm,
+            ),
+            child: TextField(
+              controller: phoneController,
+              keyboardType: TextInputType.phone,
+              decoration: FormFieldDesign.textFieldDesign.copyWith(
+                labelText: 'Phone Number',
+                prefixIcon: const Icon(Icons.phone),
+              ),
+              onChanged: (value) async {
+                final prefs = await SharedPreferences.getInstance();
+                if (value.isEmpty) {
+                  phoneNumber = null;
+                  await prefs.remove('phone');
+                  return;
+                }
+                phoneNumber = int.parse(value);
+
+                await prefs.setInt('phone', int.parse(value));
               },
             ),
           ),
