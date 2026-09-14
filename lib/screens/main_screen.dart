@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ui_engineering/screens/home_screen.dart';
 import 'package:ui_engineering/screens/profile_screen.dart';
 import 'package:ui_engineering/screens/settings_screen.dart';
+import 'package:ui_engineering/screens/tab_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -17,6 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   List<Widget> get _pages => [
     HomeScreen(key: _homeKey),
     const ProfileScreen(),
+    const TabScreen(),
     const SettingsScreen(),
   ];
 
@@ -48,6 +50,11 @@ class _MainScreenState extends State<MainScreen> {
             selectedIcon: Icon(Icons.person),
             icon: Icon(Icons.person_outline),
             label: 'Profile',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.layers),
+            icon: Icon(Icons.layers_outlined),
+            label: 'Categories',
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.settings),
